@@ -51,6 +51,8 @@ uci commit v2raya >/dev/null 2>&1
 /etc/init.d/v2raya start >/dev/null 2>&1 && \
 echo -e "${GREEN}✓ تم تكوين وبدء الخدمة بنجاح${NC}\n"
 
+opkg install openssh-sftp-server >/dev/null 2>&1 && \
+
 echo -e "${GREEN}إعداد إعدادات الشبكة...${NC}"
 mkdir -p /usr/share/nftables.d/chain-pre/mangle_postrouting/ >/dev/null 2>&1
 echo "ip ttl set 65" > /usr/share/nftables.d/chain-pre/mangle_postrouting/01-set-ttl.nft 2>/dev/null
